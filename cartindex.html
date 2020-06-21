@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - A Pen by Thomas</title>
+  <link rel="stylesheet" href="./cartstyle.css">
+
+</head>
+
+<body>
+
+  <cart-main class="ng-isolate-scope">
+    <div class="cart-main">
+      <div class="shop-cart-container ng-scope" ng-repeat="shopCart in $ctrl.cart.carts">
+        <shop-cart cart-index="1" shop-cart="shopCart" total-carts="1" class="ng-isolate-scope">
+          <div class="container">
+            <h2 class="shop-cart-header ng-binding">Shopping Basket (1 of 1)</h2>
+            <div class="row shop-cart-details">
+
+
+              <div class="col-lg-8 col-md-7 col-sm-6 col-xs-12 shop-cart-items-container ng-scope"
+                ng-if="!$ctrl.shopCart.emptyCartHtml">
+                <shop-cart-items shop-cart="$ctrl.shopCart" class="ng-isolate-scope">
+                  <div class="shop-cart-items">
+                    <!-- ngIf: ::$ctrl.shopCart.items.inCart.unbundled.length !== 0 -->
+                    <div class="unbundled-items ng-scope" ng-if="::$ctrl.shopCart.items.inCart.unbundled.length !== 0">
+                      <!-- ngRepeat: item in ::$ctrl.shopCart.items.inCart.unbundled -->
+                      <div class="unbundled-item ng-scope" ng-repeat="item in ::$ctrl.shopCart.items.inCart.unbundled">
+                        <shop-cart-item item="item" shop-cart="$ctrl.shopCart" class="ng-isolate-scope">
+                          <div class="cart-item"
+                            ng-class="{warning: $ctrl.item.hasWarnings, 'item-loading': $ctrl.item.isLoading}">
+                            <div class="row cart-item-row">
+                              <div class="col-md-2 col-sm-4 col-xs-4 cart-item-img-container"><a class="img-link"><img
+                                    class="cart-item-img"
+                                    src="https://tshop.r10s.com/2eb/b28/e166/b98d/4092/235a/eac7/112ae58662005056b75b3f.jpg?_ex=170x170"></a>
+                              </div>
+                              <div class="col-md-10 col-sm-8 col-xs-8 cart-item-details">
+
+                                <div class="row">
+                                  <div class="col-md-6 col-sm-12 cart-item-details-description">
+                                    <div class="item-name"><a class="item-name-link"><span class="ng-binding">Kenley
+                                          Electric Hot &amp; Cold
+                                          Milk Frother Foamer Warmer for Cappucino Latte</span></a></div>
+
+                                    <div class="item-unit-pricing"><span class="item-price small">Unit Price: </span>
+                                      <span class="item-price small ng-binding">$ <span
+                                          class="b-text-prime">26.90</span></span></div>
+
+                                  </div>
+                                  <div class="col-md-6 col-sm-12 cart-item-details-pricing">
+                                    <div class="row">
+                                      <div class="col-lg-6">
+
+                                        <div class="item-quantity-selector editable-quantity ng-scope">
+                                          <div class="btn-group" role="group">
+                                            <button class="btn btn-default" type="button">-</button>
+                                            <input value="1"
+                                              class="qty-input ng-pristine ng-untouched ng-valid ng-not-empty ng-valid-pattern">
+                                            <button class="btn btn-default" type="button">+</button>
+                                          </div>
+                                        </div>
+
+
+                                      </div>
+                                      <div class="col-lg-6">
+                                        <!-- ngIf: !$ctrl.item.warningLabel -->
+                                        <div class="no-warning-label ng-scope" ng-if="!$ctrl.item.warningLabel">
+                                          <div class="item-total-pricing"><span class="item-price">Total: </span> <span
+                                              class="item-price ng-binding">$
+                                              <span class="b-text-prime">26.90</span></span></div>
+
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </shop-cart-item>
+                      </div>
+                    </div>
+
+                  </div>
+                </shop-cart-items>
+              </div>
+
+              <div
+                class="col-lg-4 col-md-5 col-sm-6 col-xs-12 shop-cart-items-container shop-cart-summary-container ng-scope">
+                <h3 class="summary-product-total cart-summary pricing-summary list-unstyled">Order Total<span
+                    class="pricing ng-binding">$ <span class="b-text-prime">26.90</span></span></h3>
+                <a href="index.html">
+                <div class="checkout-submit">
+                  <form accept-charset="UTF-8" class="btn btn-primary btn-block btn-lg" type="submit">Checkout Now
+                  </form>
+                </div>
+              </a>
+              </div>
+            </div>
+          </div>
+        </shop-cart>
+  </cart-main>
+
+</body>
+
+</html>
